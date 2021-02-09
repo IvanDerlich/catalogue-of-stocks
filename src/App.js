@@ -7,13 +7,15 @@ function App() {
   // eslint-disable-next-line no-useless-concat
   const credentials = Buffer.from('Tu2pyn7ZhwuajNkMvAbUx4M7iU3ZHg_h' + ':' + 'oVQDFna_412dCcPz9Tf0FGjeL0YbKqxB').toString('base64');
   console.log(credentials)
-  fetch('https://api.exchange.bitcoin.com/api/2/trading/balance', {
+  const CORSproxyURL = "https://frozen-lake-26505.herokuapp.com/";
+  const APIserverURL = 'https://api.exchange.bitcoin.com/api/2/trading/balance'
+  fetch( CORSproxyURL + APIserverURL, {
     method: 'GET',
     headers: {
-        'Authorization': 'Basic ' + credentials
+      'Authorization': 'Basic ' + credentials,
     }
-}).then(response => response.json())
-.then(info => console.log(info));;
+  }).then(response => response.json())
+  .then(info => console.log(info));;
   return (
     <div className="App">
       <header className="App-header">
