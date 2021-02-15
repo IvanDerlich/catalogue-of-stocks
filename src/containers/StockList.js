@@ -1,4 +1,4 @@
-import Stock from './Stock'
+import Stock from '../components/Stock'
 
 
 export default function StockList({stockList}) {

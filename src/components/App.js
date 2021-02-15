@@ -2,7 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 // import { createStore } from 'redux';
 // import mainReducer from './reducers/index';
-import StockList from './StockList'
+import StockList from '../containers/StockList'
 import getStockList from '../services/getStockList'
 
 function App() {
@@ -12,13 +12,31 @@ function App() {
   const [sectorList, setSectorList ] = useState([])
 
   const getUniqueValuesFromList = (list, propertyName) => {
-    let aux = [];
+    let array = [];
+    let value = ""
     list.forEach(item => {
-      if(!aux.includes(item[propertyName])){
-        aux.push(item[propertyName])
+      value = item[propertyName]     
+      if(!array.includes(value)){
+        array.push(value)
       }          
-    })
-    return aux;
+    })    
+    const aux = array[0]
+    array[0]= 'NOT SPECIFIED'
+    const index = array.indexOf('')
+    array[index] = aux
+    return array;
+  }
+
+  const displaySelect = (list, propertyName) =>{
+    return (
+      <div>
+        <div>{propertyName.replace(/^\w/, (c) => c.toUpperCase())}</div>
+        <select name={propertyName}>
+          <option>--- Select Value ---</option>
+          {list.map(item => <option value={item}>{item}</option>)}
+        </select>
+      </div>
+    )
   }
 
    useEffect(() => {   
@@ -39,15 +57,11 @@ function App() {
 
   if (stockList.length !== 0){      
     return(
-      <div>
-        <div>Industries</div>
-        <div>{industryList}</div>
-        <div>Sectors</div>
-        <div>{sectorList}</div>
-        <div>Countries</div>
-        <div>{countryList}</div>
-        <StockList stockList={stockList}/>      
-        
+      <div>     
+        {displaySelect(industryList,'industries')}
+        {displaySelect(sectorList,'sectors')}
+        {displaySelect(countryList,'countries')}  
+        <StockList stockList={stockList}></StockList>        
       </div>
     )
   } else {
