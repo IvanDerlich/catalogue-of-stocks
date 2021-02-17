@@ -34,7 +34,7 @@ const customResolve = (resolve,stockList) => {
   resolve(store)
 }
 
-const initialize = mode => {  
+const INITIALIZE = mode => {  
   return new Promise( async (resolve, reject) => {   
     const time = 100; 
     if (mode === 'offline'){
@@ -51,4 +51,4 @@ const initialize = mode => {
   });
 }
 
-export default initialize
+export default INITIALIZE

@@ -1,9 +1,8 @@
 import {
-  INITIALIZE,
-  RETRIEVE_SINGLE_STOCK,
-  CHANGE_COUNTRY_FILTER,
-  CHANGE_SECTOR_FILTER,
-  CHANGE_INDUSTRY_FILTER,
+  initialize,
+  retrieveSingleStock,
+  changeFilter,
+  retrieveFilteredStocks,
 } from './index'
 
 import {
@@ -15,30 +14,50 @@ import {
 } from './indexdictionary.test'
 
 test('Multiple tests with one store', async () => {
-  const store = await INITIALIZE('offline')
-  const state = store.getState()
-  expect(state.stockList.length).toBe(50)
+  const store = await initialize('offline')
+  expect(
+    store
+    .getState()
+    .stockList.length
+  ).toBe(50)
 
-  expect(state.stockList[3]).toStrictEqual(stock3)
+  expect(
+    store
+    .getState()
+    .stockList[3]
+  ).toStrictEqual(stock3)
 
-  expect(state.industryList).toStrictEqual(expectedIndustryList)
+  expect(
+    store
+    .getState()
+    .industryList
+  ).toStrictEqual(expectedIndustryList)
 
-
-  expect(RETRIEVE_SINGLE_STOCK(store,'AAPL'))
+  expect(retrieveSingleStock(store,'AAPL'))
     .toStrictEqual(expectedAppleStock) 
 
-  expect(RETRIEVE_SINGLE_STOCK(store,'MSFT'))
+  expect(retrieveSingleStock(store,'MSFT'))
     .toStrictEqual(expectedMicrosoftStock) 
 
-  expect(RETRIEVE_SINGLE_STOCK(store,'FB'))
+  expect(retrieveSingleStock(store,'FB'))
     .toStrictEqual(expectedFacebookStock) 
-  
-  CHANGE_INDUSTRY_FILTER(store,'rrrr');
-  console.log('IndustryFilter')
-  console.log(state.industryFilter)
 
-  CHANGE_SECTOR_FILTER(store,'tttt')
-
-  CHANGE_COUNTRY_FILTER(store,'eeeee')
+  let stocks = retrieveFilteredStocks(store)
+  expect(stocks.length).toBe(50)
   
+  const industryFilterValue = 'Industry One'
+  changeFilter(store,'industry',industryFilterValue)   
+  expect(store.getState().industryFilter).toEqual(industryFilterValue)
+  
+  const sectorFilterValue = 'Sector One'
+  changeFilter(store,'sector',sectorFilterValue)
+  expect(store.getState().sectorFilter).toEqual(sectorFilterValue)
+
+  const countryFilterValue = 'Country One'
+  changeFilter(store,'country',countryFilterValue)
+  expect(store.getState().countryFilter).toEqual(countryFilterValue)
+
+  stocks = retrieveFilteredStocks(store)
+  expect(stocks.length).toBe(0)
+ 
 });
