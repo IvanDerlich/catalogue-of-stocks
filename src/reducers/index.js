@@ -1,7 +1,18 @@
-// import { combineReducers } from 'redux';
-// import books from './books';
-// import categoryFilter from './filter';
+import { combineReducers } from 'redux';
 
-// const reducer = combineReducers({ books, categoryFilter });
+import countryFilter from './filters/country'
+import industryFilter from './filters/industry'
+import sectorFilter from './filters/sector'
 
-// export default reducer;
+
+const mainReducer = combineReducers({   
+  industryList: (state = [], action) => state,
+  countryList: (state = [], action) => state,
+  sectorList: (state = [], action) => state,  
+  countryFilter,
+  industryFilter,  
+  sectorFilter,
+  stockList: (state = [], action) => state,
+});
+
+export default mainReducer;

@@ -1,9 +1,14 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-// import { createStore } from 'redux';
-// import mainReducer from './reducers/index';
 import StockList from '../containers/StockList'
+import {INITIALIZE} from '../actions'
 import getStockList from '../services/getStockList'
+
+const store = INITIALIZE('offline')
+
+console.log('Initizlized Store')
+console.log(store, 'Store')
+console.log(store.getState(), 'Get State')
 
 function App() {
   const [stockList, setStockList ] = useState([])

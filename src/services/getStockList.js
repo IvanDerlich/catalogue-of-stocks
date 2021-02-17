@@ -1,10 +1,4 @@
-import sample from './stockListSample'
-
-
-export default function getStockList(options) {
-  if (options === 'offline'){    
-    return new Promise(resolve => setTimeout(resolve(sample),3000));
-  }
+export default function getStockList() {
 
   let URL = ''
   const CORSproxyURL = "https://frozen-lake-26505.herokuapp.com/";
