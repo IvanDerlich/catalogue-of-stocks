@@ -99,6 +99,3 @@ export {
   expectedMicrosoftStock,
   expectedFacebookStock
 }
-
-test('Dummy test', async () => {  
-})
