@@ -38,17 +38,18 @@ export const retrieveFilteredStocks = (store) => {
     sectorFilter,
     countryFilter
   } = store.getState()
-  return stockList
-  .filter(item => {
-    if(item.sector !== sectorFilter){
-      return false
-    }
-    if(item.industry !== industryFilter){
-      return false
-    }
-    if(item.countryFilter !== countryFilter){
-      return false
-    }
-    return true
+  const filteredStocks = stockList
+  .filter(item => {    
+    if (( sectorFilter === 'ANY'
+        || item.sector === sectorFilter        
+      ) && ( industryFilter === 'ANY'
+        || item.industry === industryFilter        
+      ) && ( countryFilter === 'ANY'
+        || item.countryFilter !== countryFilter
+    )){
+      return true
+    }    
+    return false
   })
+  return filteredStocks
 }

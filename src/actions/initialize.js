@@ -3,23 +3,39 @@ import offlineStockList from './stockList'
 import { createStore } from 'redux'; 
 import getStockList from '../services/getStockList'
 
-const getUniqueValuesFromList = (list, propertyName) => {
+const getUniqueValuesFromList = (list, propertyName) => {    
   let array = [];
   let value = ""
   list.forEach(item => {
-    value = item[propertyName]     
+    value = item[propertyName]         
     if(!array.includes(value)){
       array.push(value)
     }          
-  })    
-  const aux = array[0]
-  array[0]= 'NOT SPECIFIED'
-  const index = array.indexOf('')
-  array[index] = aux
+  })
+  const msgForSorting = '     '
+  const msg = 'NOT SPECIFIED'
+  let msgForSortingIndex = array.indexOf(msg)
+  array[msgForSortingIndex] = msgForSorting 
+  array = array.sort();
+  msgForSortingIndex = array.indexOf(msgForSorting)
+  array[msgForSortingIndex] = msg  
   return array;
 }
 
-const createInitialState = (stockList) => {
+const createInitialState = (stockListInput) => { 
+  const msg = 'NOT SPECIFIED'
+  const stockList = stockListInput.map(item => {
+    if (item.sector === ''){
+      item.sector = msg
+    }
+    if (item.industry === '') {
+      item.industry = msg
+    }
+    if (item.country === '') {
+      item.country = msg
+    }
+    return item
+  })
   return {    
     industryList: getUniqueValuesFromList(stockList,'industry'),
     countryList: getUniqueValuesFromList(stockList,'country'),

@@ -1,10 +1,10 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import StockList from '../containers/StockList'
-import {INITIALIZE} from '../actions'
+import {initialize} from '../actions'
 import getStockList from '../services/getStockList'
 
-const store = INITIALIZE('offline')
+const store = initialize('offline')
 
 console.log('Initizlized Store')
 console.log(store, 'Store')

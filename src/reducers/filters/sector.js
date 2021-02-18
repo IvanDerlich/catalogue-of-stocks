@@ -1,5 +1,5 @@
 const sectorFilter = (
-  state = '',
+  state = 'ANY',
   action,
 ) => {
   switch (action.type) {    

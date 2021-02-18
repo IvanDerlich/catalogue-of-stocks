@@ -1,5 +1,5 @@
 const industryFilter = (
-  state = '',
+  state = 'ANY',
   action,
 ) => {
   //onsole.log(action)
