@@ -1,36 +1,13 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import {
+  initialize
+} from '../actions/index'
 import StockList from '../containers/StockList'
-import {initialize} from '../actions'
-import getStockList from '../services/getStockList'
-
-const store = initialize('offline')
-
-console.log('Initizlized Store')
-console.log(store, 'Store')
-console.log(store.getState(), 'Get State')
 
 function App() {
-  const [stockList, setStockList ] = useState([])
-  const [industryList, setIndustryList ] = useState([])
-  const [countryList, setCountryList ] = useState([])
-  const [sectorList, setSectorList ] = useState([])
+  const [store, setStore ] = useState(null) 
 
-  const getUniqueValuesFromList = (list, propertyName) => {
-    let array = [];
-    let value = ""
-    list.forEach(item => {
-      value = item[propertyName]     
-      if(!array.includes(value)){
-        array.push(value)
-      }          
-    })    
-    const aux = array[0]
-    array[0]= 'NOT SPECIFIED'
-    const index = array.indexOf('')
-    array[index] = aux
-    return array;
-  }
 
   const displaySelect = (list, propertyName) =>{
     return (
@@ -45,22 +22,19 @@ function App() {
   }
 
    useEffect(() => {   
-    getStockList('offline')
-      .then(list => {
-        setStockList(list)         
-
-        const industries = getUniqueValuesFromList(list,'industry')
-        setIndustryList(industries)
-
-        let sectors = getUniqueValuesFromList(list,'sector');
-        setSectorList(sectors)
-
-        let country = getUniqueValuesFromList(list,'country');
-        setCountryList(country)  
+    initialize('offline')
+      .then(store => {
+        setStore(store)
       }) 
   }, []);
 
-  if (stockList.length !== 0){      
+  if (store){  
+    const {
+      industryList,
+      stockList,
+      sectorList,
+      countryList,
+    } = store.getState()    
     return(
       <div>     
         {displaySelect(industryList,'industries')}
