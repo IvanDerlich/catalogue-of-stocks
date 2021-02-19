@@ -6,10 +6,12 @@ export default function Stock({stock}) {
     exchange,
     country,
     price,
+    symbol,
   } = stock
   return (
     <div>
       <hr/>
+      <div>Symbol: {symbol}</div>
       <div>Name: {companyName}</div>
       <div>Sector: {sector}</div>
       <div>Industry: {industry}</div>

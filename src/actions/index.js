@@ -17,4 +17,3 @@ export const retrieveSingleStock = (store, symbol) => {
     .stockList
     .find( stock => stock.symbol === symbol)
 }
-

@@ -1,7 +1,14 @@
 import Stock from '../components/Stock'
+import {retrieveFilteredStocks} from '../actions/index'
+import { useState, useCallback } from 'react'
 
-
-export default function StockList({stockList}) {
+function StockList({store}) {
+  const [, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
+  store.subscribe(()=>{ forceUpdate() })
+  const stockList = retrieveFilteredStocks(store)
+  console.log('In Stocks')
+  console.log(store.getState())
   return (
     <div>
       {stockList.map((stock, index) => {
@@ -10,3 +17,5 @@ export default function StockList({stockList}) {
     </div>  
   )
 }
+
+export default StockList

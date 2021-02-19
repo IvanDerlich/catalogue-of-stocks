@@ -12,7 +12,7 @@ export default function getStockList() {
   URL += APIserverResource
 
   const APIlogin = 'apikey=dac6f60dd17c66173752bde6a06cffec'
-  // const APIlogin = 'ee7a46a70a081cf2f588caa46c033288'
+  //const APIlogin = 'apikey=ee7a46a70a081cf2f588caa46c033288'
   URL += APIlogin
 
   const limit = '&limit=50'  
