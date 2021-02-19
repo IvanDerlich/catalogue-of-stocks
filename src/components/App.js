@@ -1,9 +1,11 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import {
-  initialize
+  initialize,
+  retrieveFilteredStocks
 } from '../actions/index'
 import StockList from '../containers/StockList'
+import Filters from './Filters'
 
 function App() {
   const [store, setStore ] = useState(null) 
@@ -28,19 +30,12 @@ function App() {
       }) 
   }, []);
 
-  if (store){  
-    const {
-      industryList,
-      stockList,
-      sectorList,
-      countryList,
-    } = store.getState()    
+  if (store){     
+    const stockList = retrieveFilteredStocks(store)
     return(
-      <div>     
-        {displaySelect(industryList,'industries')}
-        {displaySelect(sectorList,'sectors')}
-        {displaySelect(countryList,'countries')}  
-        <StockList stockList={stockList}></StockList>        
+      <div>   
+        <Filters store={store}/>
+        <StockList stockList={stockList}/>
       </div>
     )
   } else {

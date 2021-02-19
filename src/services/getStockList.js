@@ -11,7 +11,6 @@ export default function getStockList() {
   const APIserverResource = 'api/v3/stock-screener?';   
   URL += APIserverResource
 
-
   const APIlogin = 'apikey=dac6f60dd17c66173752bde6a06cffec'
   // const APIlogin = 'ee7a46a70a081cf2f588caa46c033288'
   URL += APIlogin

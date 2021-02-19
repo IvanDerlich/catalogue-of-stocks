@@ -1,0 +1,1 @@
+//Here I display a single stock
