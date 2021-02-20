@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import Filter from '../components/Filter';
+
 import {
   changeFilter,
 } from '../actions/index';
@@ -14,9 +16,9 @@ function Filters({ store }) {
   ];
   return (
     <div>
-      {names.map((name, index) => (
+      {names.map(name => (
         <Filter
-          key={index}
+          key={name}
           list={store.getState()[`${name}List`]}
           name={name}
           changeFilter={handleChangeFilter}
@@ -25,5 +27,11 @@ function Filters({ store }) {
     </div>
   );
 }
+
+Filters.propTypes = {
+  store: PropTypes.objectOf(
+    PropTypes.func,
+  ).isRequired,
+};
 
 export default Filters;

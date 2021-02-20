@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import getUniqueValuesFromList from './getUniqueValuesFromList';
 
 const createInitialState = stockListInput => {

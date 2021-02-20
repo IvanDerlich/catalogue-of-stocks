@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function Stock({ stock, number }) {
+function Stock({ stock, number }) {
   const {
     companyName,
     sector,
@@ -53,3 +54,19 @@ export default function Stock({ stock, number }) {
     </div>
   );
 }
+
+Stock.propTypes = {
+  number: PropTypes.number.isRequired,
+  stock: PropTypes.objectOf({
+    companyName: PropTypes.string,
+    sector: PropTypes.string,
+    industry: PropTypes.string,
+    exchange: PropTypes.string,
+    country: PropTypes.string,
+    price: PropTypes.number,
+    symbol: PropTypes.string,
+    id: PropTypes.number,
+  }).isRequired,
+};
+
+export default Stock;

@@ -1,3 +1,5 @@
+/* eslint-disable no-async-promise-executor */
+/* eslint-disable prefer-promise-reject-errors */
 import { createStore } from 'redux';
 import mainReducer from '../../reducers/index';
 import offlineStockList from '../stockList';

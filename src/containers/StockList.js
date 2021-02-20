@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import Stock from '../components/Stock';
 import { retrieveFilteredStocks } from '../actions/index';
 
@@ -20,7 +21,7 @@ function StockList({ store }) {
       </div>
       {stockList.map((stock, index) => (
         <Stock
-          key={index}
+          key={stock.id}
           number={index + 1}
           stock={stock}
         />
@@ -28,5 +29,11 @@ function StockList({ store }) {
     </div>
   );
 }
+
+StockList.propTypes = {
+  store: PropTypes.objectOf(
+    PropTypes.func,
+  ).isRequired,
+};
 
 export default StockList;

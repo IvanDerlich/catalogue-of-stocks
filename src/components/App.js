@@ -27,7 +27,8 @@ function App() {
           path="/stocks/:symbol"
           component={props => (
             <DisplaySingleStock
-              {...props}
+              // {...props}
+              symbol={props.match.params.symbol}
               store={store}
             />
           )}

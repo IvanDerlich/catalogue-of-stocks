@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import { retrieveSingleStock } from '../actions/index';
 
 function DisplaySingleStock(props) {
-  const { store } = props;
-  const { symbol } = props.match.params;
+  const { store, symbol } = props;
   const stock = retrieveSingleStock(store, symbol);
   const {
     companyName,
@@ -50,4 +50,12 @@ function DisplaySingleStock(props) {
     </div>
   );
 }
+
+DisplaySingleStock.propTypes = {
+  store: PropTypes.objectOf(
+    PropTypes.func,
+  ).isRequired,
+  symbol: PropTypes.string.isRequired,
+};
+
 export default DisplaySingleStock;

@@ -1,7 +1,7 @@
 import INITIALIZE from './initialize/index';
 import CHANGE_FILTER from './changeFilter';
 import RETRIEVE_FILTERED_STOCKS from './retrieveFilteredStocks';
-import CLEAR_FILTERS from './clearFilters';
+import { CLEAR_FILTERS } from './clearFilters';
 
 export const initialize = mode => INITIALIZE(mode);
 

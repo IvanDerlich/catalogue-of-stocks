@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Filter = ({ list, name, changeFilter }) => {
   const handleChange = event => {
     const newValue = event.target.value;
@@ -13,9 +15,9 @@ const Filter = ({ list, name, changeFilter }) => {
       >
         <option value="ANY">--- Select Value ---</option>
         <option value="ANY">ANY</option>
-        {list.map((item, index) => (
+        {list.map(item => (
           <option
-            key={index}
+            key={item}
             value={item}
           >
             {item}
@@ -24,6 +26,12 @@ const Filter = ({ list, name, changeFilter }) => {
       </select>
     </div>
   );
+};
+
+Filter.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  name: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
 export default Filter;
