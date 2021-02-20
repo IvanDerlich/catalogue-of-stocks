@@ -43,6 +43,7 @@
 ## Technologies used
 
   - React
+  - Redux
 
 ## Author
 
