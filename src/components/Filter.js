@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 const Filter = ({ list, name, changeFilter }) => {
   const handleChange = event => {
-    const newValue = event.target.value;
-    changeFilter(name, newValue);
+    const { value } = event.target;
+    changeFilter(name, value);
   };
 
   return (
