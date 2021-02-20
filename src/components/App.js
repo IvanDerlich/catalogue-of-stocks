@@ -15,7 +15,8 @@ function App() {
     /* Adjust the parameter of the below function to:
         - 'offline': consumes a stockList from src/actions/stockList.js
         - 'API': Calls the financialmodelingprep.com API
-      More info at src/actions/index-info.md
+      More info at 'For initialize action function' section in
+        README.md at the root of the root of the repo
     */
     initialize('offline')
       .then(store => {
