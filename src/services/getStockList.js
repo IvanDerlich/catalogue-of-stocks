@@ -15,7 +15,7 @@ export default function getStockList() {
   //const APIlogin = 'apikey=ee7a46a70a081cf2f588caa46c033288'
   URL += APIlogin
 
-  const limit = '&limit=50'  
+  const limit = '&limit=200'  
   URL += limit
 
   return fetch(URL).then(response => response.json())

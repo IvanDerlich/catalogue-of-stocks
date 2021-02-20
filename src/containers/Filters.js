@@ -6,11 +6,6 @@ import {
 function Filters({store}) {
   
   const handleChangeFilter = (name,value) => {  
-    //console.log(event, 'Event')
-    // console.log(name, 'Name')
-    // console.log(store)
-    // const {value} = event.target
-    // console.log(event. target.value, '-> Value')
     changeFilter(store, name, value)
   }
   const names = [

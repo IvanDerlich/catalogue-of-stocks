@@ -1,8 +1,12 @@
-import './App.css';
 import { useState, useEffect } from 'react';
+import { Route, BrowserRouter } from 'react-router-dom'
+import './App.css';
 import {initialize} from '../actions/index'
-import StockList from '../containers/StockList'
-import Filters from '../containers/Filters'
+import DisplayStocks from './DisplayStocks'
+import DisplaySingleStock from './DisplaySingleStock'
+import About from './About'
+import NavBar from './Navbar'
+
 
 function App() {
   const [store, setStore ] = useState(null) 
@@ -15,13 +19,19 @@ function App() {
   }, []);
 
   if (store){
-    console.log('In App')
-    console.log(store)
-    return(
-      <div>   
-        <Filters store={store}/>
-        <StockList store={store}/>
-      </div>
+    return(      
+      <BrowserRouter >    
+        <NavBar/>
+        <Route exact path='/' component={()=><DisplayStocks store={store}/>}/>
+        <Route path='/About' component={About}/>
+        <Route path='/stocks/:symbol'component={(props)=>
+          <DisplaySingleStock 
+            {...props}
+            store={store}            
+          />}
+        />
+      </BrowserRouter>    
+      
     )
   } else {
     return (

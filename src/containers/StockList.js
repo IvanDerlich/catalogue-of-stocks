@@ -7,12 +7,17 @@ function StockList({store}) {
   const forceUpdate = useCallback(() => updateState({}), []);
   store.subscribe(()=>{ forceUpdate() })
   const stockList = retrieveFilteredStocks(store)
-  console.log('In Stocks')
-  console.log(store.getState())
+  const length = stockList.length
+
   return (
     <div>
-      {stockList.map((stock, index) => {
-        return (<Stock key={index} stock={stock}/>)
+      <hr/>
+      <div>Fetched {length} stocks</div>
+      {stockList.map((stock, index) => {      
+        return (<Stock 
+          key={index}
+          number={index+1}          
+          stock={stock}/>)
       })}      
     </div>  
   )

@@ -1,4 +1,6 @@
-export default function Stock({stock}) {
+import { Link } from 'react-router-dom'
+
+export default function Stock({stock,number}) {
   const {
     companyName,
     sector,
@@ -7,11 +9,16 @@ export default function Stock({stock}) {
     country,
     price,
     symbol,
+    id,
   } = stock
   return (
     <div>
       <hr/>
-      <div>Symbol: {symbol}</div>
+      <div>Number: {number}</div>
+      <div>Id: {id}</div>
+      <div>Symbol: {
+        <Link to={'stocks/'+symbol} >{symbol}</Link>
+      }</div>
       <div>Name: {companyName}</div>
       <div>Sector: {sector}</div>
       <div>Industry: {industry}</div>

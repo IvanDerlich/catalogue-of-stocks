@@ -2,7 +2,7 @@ import getUniqueValuesFromList from './getUniqueValuesFromList'
 
 const createInitialState = (stockListInput) => { 
   const msg = 'NOT SPECIFIED'
-  const stockList = stockListInput.map(item => {
+  const stockList = stockListInput.map((item,index) => {
     if (item.sector === ''){
       item.sector = msg
     }
@@ -12,6 +12,7 @@ const createInitialState = (stockListInput) => {
     if (item.country === '') {
       item.country = msg
     }
+    item.id = index
     return item
   })
   return {    

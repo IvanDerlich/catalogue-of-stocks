@@ -1,4 +1,4 @@
-  
+
 const Filter = ({list, name, changeFilter}) =>{  
 
   const handleChange = (event) => {
