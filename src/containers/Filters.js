@@ -19,7 +19,7 @@ function Filters({ store }) {
       {names.map(name => (
         <Filter
           key={name}
-          list={store.getState()[`${name}List`]}
+          store={store}
           name={name}
           changeFilter={handleChangeFilter}
         />

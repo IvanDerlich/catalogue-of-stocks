@@ -1,10 +1,20 @@
 import PropTypes from 'prop-types';
+import { useState, useCallback, useEffect } from 'react';
 
-const Filter = ({ list, name, changeFilter }) => {
+const Filter = ({
+  store, name, changeFilter,
+}) => {
   const handleChange = event => {
     const { value } = event.target;
     changeFilter(name, value);
   };
+
+  const reduxState = store.getState();
+  const filterValue = reduxState[`${name}Filter`];
+  const filterList = reduxState[`${name}List`];
+  const [, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
+  useEffect(() => store.subscribe(() => { forceUpdate(); }), []);
 
   return (
     <div>
@@ -12,10 +22,10 @@ const Filter = ({ list, name, changeFilter }) => {
       <select
         onChange={handleChange}
         name={name}
+        value={filterValue}
       >
-        <option value="ANY">--- Select Value ---</option>
         <option value="ANY">ANY</option>
-        {list.map(item => (
+        {filterList.map(item => (
           <option
             key={item}
             value={item}
@@ -29,7 +39,9 @@ const Filter = ({ list, name, changeFilter }) => {
 };
 
 Filter.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.string).isRequired,
+  store: PropTypes.objectOf(
+    PropTypes.func,
+  ).isRequired,
   name: PropTypes.string.isRequired,
   changeFilter: PropTypes.func.isRequired,
 };

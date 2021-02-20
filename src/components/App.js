@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
+import Loading from './Loading';
 import { initialize } from '../actions/index';
 import DisplayStocks from './DisplayStocks';
 import DisplaySingleStock from './DisplaySingleStock';
@@ -12,13 +13,7 @@ function App() {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
-    /* Adjust the parameter of the below function to:
-        - 'offline': consumes a stockList from src/actions/stockList.js
-        - 'API': Calls the financialmodelingprep.com API
-      More info at 'For initialize action function' section in
-        README.md at the root of the root of the repo
-    */
-    initialize('offline')
+    initialize('API')
       .then(store => {
         setStore(store);
       });
@@ -34,7 +29,6 @@ function App() {
           path="/stocks/:symbol"
           component={props => (
             <DisplaySingleStock
-              // {...props}
               symbol={props.match.params.symbol}
               store={store}
             />
@@ -44,13 +38,7 @@ function App() {
 
     );
   }
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div>Fetching stocks...</div>
-      </header>
-    </div>
-  );
+  return (<Loading />);
 }
 
 export default App;
