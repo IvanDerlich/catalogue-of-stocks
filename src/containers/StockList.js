@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Stock from '../components/Stock';
 import { retrieveFilteredStocks } from '../actions/index';
@@ -6,7 +6,14 @@ import { retrieveFilteredStocks } from '../actions/index';
 function StockList({ store }) {
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-  store.subscribe(() => { forceUpdate(); });
+
+  /*
+    The return value of the function bellow these comments is use to
+    unsusbscribe to the store. The return value is a function
+    used for cleanup.
+  */
+  useEffect(() => store.subscribe(() => { forceUpdate(); }), []);
+
   const stockList = retrieveFilteredStocks(store);
   const { length } = stockList;
 
@@ -15,8 +22,7 @@ function StockList({ store }) {
       <hr />
       <div>
         Fetched
-        {length}
-        {' '}
+        {` ${length} `}
         stocks
       </div>
       {stockList.map((stock, index) => (

@@ -57,7 +57,7 @@ function Stock({ stock, number }) {
 
 Stock.propTypes = {
   number: PropTypes.number.isRequired,
-  stock: PropTypes.objectOf({
+  stock: PropTypes.shape({
     companyName: PropTypes.string,
     sector: PropTypes.string,
     industry: PropTypes.string,

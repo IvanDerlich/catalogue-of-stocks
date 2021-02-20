@@ -29,7 +29,7 @@ const Filter = ({ list, name, changeFilter }) => {
 };
 
 Filter.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  list: PropTypes.arrayOf(PropTypes.string).isRequired,
   name: PropTypes.string.isRequired,
   changeFilter: PropTypes.func.isRequired,
 };
