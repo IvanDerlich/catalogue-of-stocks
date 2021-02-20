@@ -1,14 +1,9 @@
+import { retrieveSingleStock } from "../actions/index"
+
 function DisplaySingleStock(props){  
   const {store} = props
-  const {symbol} = props.match.params
-  const stock = store.getState()
-    .stockList
-    .find((stock, index) => {
-      if(stock.symbol === symbol){  
-        return true
-      }
-      return false
-    })
+  const {symbol} = props.match.params 
+  const stock = retrieveSingleStock(store,symbol)
   const {
     companyName,
     sector,

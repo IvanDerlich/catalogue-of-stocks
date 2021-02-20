@@ -32,11 +32,17 @@ describe('Multiple tests with one store', () => {
       ).toBe(50)
     })
     test('check retrieveSingleStock() return the right stock', () => {
+
+      console.log(store.getState().stockList[3])
+      console.log(stock3)
+
       expect(
         store
         .getState()
         .stockList[3]
-      ).toStrictEqual(stock3)
+      ).toStrictEqual(stock3)     
+
+     
       expect(
         retrieveSingleStock(store,'AAPL')
       )

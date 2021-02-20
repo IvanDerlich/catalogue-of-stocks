@@ -12,7 +12,8 @@ const stock3 = {
   exchangeShortName: 'NASDAQ',
   country: 'US',
   isEtf: false,
-  isActivelyTrading: true 
+  isActivelyTrading: true,
+  id:3,
 }
 
 const expectedIndustryList = [ 
@@ -55,7 +56,8 @@ const expectedAppleStock = {
   exchangeShortName: 'NASDAQ',
   country: 'US',
   isEtf: false,
-  isActivelyTrading: true 
+  isActivelyTrading: true,
+  id:0,
 }
 
 const expectedMicrosoftStock = {
@@ -72,7 +74,8 @@ const expectedMicrosoftStock = {
   exchangeShortName: 'NASDAQ',
   country: 'US',
   isEtf: false,
-  isActivelyTrading: true 
+  isActivelyTrading: true,
+  id:2,
 }
 
 const expectedFacebookStock = {
@@ -89,7 +92,8 @@ const expectedFacebookStock = {
   exchangeShortName: 'NASDAQ',
   country: 'US',
   isEtf: false,
-  isActivelyTrading: true 
+  isActivelyTrading: true,
+  id:7,
 }
 
 export {
