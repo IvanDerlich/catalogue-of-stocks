@@ -1,4 +1,4 @@
-const stock3 = { 
+const stock3 = {
   symbol: 'AMZN',
   companyName: 'Amazon.com Inc',
   marketCap: 1655006690000,
@@ -13,10 +13,10 @@ const stock3 = {
   country: 'US',
   isEtf: false,
   isActivelyTrading: true,
-  id:3,
-}
+  id: 3,
+};
 
-const expectedIndustryList = [ 
+const expectedIndustryList = [
   'NOT SPECIFIED',
   'Auto Manufacturers',
   'Banks Diversified',
@@ -39,10 +39,10 @@ const expectedIndustryList = [
   'Semiconductors',
   'Software Application',
   'Software Infrastructure',
-  'Telecom Services'
-]
+  'Telecom Services',
+];
 
-const expectedAppleStock = { 
+const expectedAppleStock = {
   symbol: 'AAPL',
   companyName: 'Apple Inc',
   marketCap: 2272940790000,
@@ -57,8 +57,8 @@ const expectedAppleStock = {
   country: 'US',
   isEtf: false,
   isActivelyTrading: true,
-  id:0,
-}
+  id: 0,
+};
 
 const expectedMicrosoftStock = {
   symbol: 'MSFT',
@@ -75,11 +75,11 @@ const expectedMicrosoftStock = {
   country: 'US',
   isEtf: false,
   isActivelyTrading: true,
-  id:2,
-}
+  id: 2,
+};
 
 const expectedFacebookStock = {
- symbol: 'FB',
+  symbol: 'FB',
   companyName: 'Facebook Inc',
   marketCap: 774196040000,
   sector: 'Communication Services',
@@ -93,13 +93,13 @@ const expectedFacebookStock = {
   country: 'US',
   isEtf: false,
   isActivelyTrading: true,
-  id:7,
-}
+  id: 7,
+};
 
 export {
   stock3,
   expectedIndustryList,
   expectedAppleStock,
   expectedMicrosoftStock,
-  expectedFacebookStock
-}
+  expectedFacebookStock,
+};

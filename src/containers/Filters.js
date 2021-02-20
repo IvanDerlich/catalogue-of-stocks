@@ -1,30 +1,29 @@
-import Filter from '../components/Filter'
+import Filter from '../components/Filter';
 import {
-  changeFilter
-} from '../actions/index'
+  changeFilter,
+} from '../actions/index';
 
-function Filters({store}) {
-  
-  const handleChangeFilter = (name,value) => {  
-    changeFilter(store, name, value)
-  }
+function Filters({ store }) {
+  const handleChangeFilter = (name, value) => {
+    changeFilter(store, name, value);
+  };
   const names = [
     'industry',
     'sector',
-    'country'
-  ]
-  return(
+    'country',
+  ];
+  return (
     <div>
-      {names.map( (name, index) => 
+      {names.map((name, index) => (
         <Filter
           key={index}
-          list={store.getState()[name + 'List']}
+          list={store.getState()[`${name}List`]}
           name={name}
           changeFilter={handleChangeFilter}
         />
-      )}     
+      ))}
     </div>
-  )
+  );
 }
 
-export default Filters
+export default Filters;

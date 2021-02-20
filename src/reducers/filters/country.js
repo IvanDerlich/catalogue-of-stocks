@@ -2,9 +2,9 @@ const countryFilter = (
   state = 'ANY',
   action,
 ) => {
-  switch (action.type) {    
+  switch (action.type) {
     case 'CHANGE_COUNTRY_FILTER':
-      return action.countryFilter    
+      return action.countryFilter;
     default:
       return state;
   }

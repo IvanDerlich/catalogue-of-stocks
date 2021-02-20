@@ -1,9 +1,9 @@
-import { retrieveSingleStock } from "../actions/index"
+import { retrieveSingleStock } from '../actions/index';
 
-function DisplaySingleStock(props){  
-  const {store} = props
-  const {symbol} = props.match.params 
-  const stock = retrieveSingleStock(store,symbol)
+function DisplaySingleStock(props) {
+  const { store } = props;
+  const { symbol } = props.match.params;
+  const stock = retrieveSingleStock(store, symbol);
   const {
     companyName,
     sector,
@@ -12,18 +12,42 @@ function DisplaySingleStock(props){
     country,
     price,
     id,
-  } = stock
-  return(
+  } = stock;
+  return (
     <div>
-      <div>Id: {id}</div>
-      <div>Symbol: {symbol} </div>      
-      <div>Name: {companyName}</div>
-      <div>Sector: {sector}</div>
-      <div>Industry: {industry}</div>
-      <div>Exchange: {exchange}</div>
-      <div>Contry: {country}</div>
-      <div>Price: {price}</div>
+      <div>
+        Id:
+        {id}
+      </div>
+      <div>
+        Symbol:
+        {symbol}
+      </div>
+      <div>
+        Name:
+        {companyName}
+      </div>
+      <div>
+        Sector:
+        {sector}
+      </div>
+      <div>
+        Industry:
+        {industry}
+      </div>
+      <div>
+        Exchange:
+        {exchange}
+      </div>
+      <div>
+        Contry:
+        {country}
+      </div>
+      <div>
+        Price:
+        {price}
+      </div>
     </div>
-  )
+  );
 }
-export default DisplaySingleStock
+export default DisplaySingleStock;

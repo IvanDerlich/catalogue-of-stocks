@@ -2,9 +2,9 @@ const sectorFilter = (
   state = 'ANY',
   action,
 ) => {
-  switch (action.type) {    
+  switch (action.type) {
     case 'CHANGE_SECTOR_FILTER':
-      return action.sectorFilter    
+      return action.sectorFilter;
     default:
       return state;
   }
