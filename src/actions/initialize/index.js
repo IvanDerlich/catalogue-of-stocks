@@ -1,5 +1,4 @@
 /* eslint-disable no-async-promise-executor */
-/* eslint-disable prefer-promise-reject-errors */
 import { createStore } from 'redux';
 import mainReducer from '../../reducers/index';
 import offlineStockList from '../stockList';
@@ -23,7 +22,9 @@ const INITIALIZE = mode => new Promise(async (resolve, reject) => {
       .then(stockList => stockList);
     customResolve(resolve, APIstockList);
   } else {
-    reject('Please specify initializing mode: API or offline');
+    reject(
+      new Error('Please specify initializing mode: API or offline'),
+    );
   }
 });
 

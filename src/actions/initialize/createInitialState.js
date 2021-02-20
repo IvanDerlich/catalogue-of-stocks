@@ -1,20 +1,20 @@
-/* eslint-disable no-param-reassign */
 import getUniqueValuesFromList from './getUniqueValuesFromList';
 
 const createInitialState = stockListInput => {
   const msg = 'NOT SPECIFIED';
-  const stockList = stockListInput.map((item, index) => {
-    if (item.sector === '') {
-      item.sector = msg;
+  const stockList = stockListInput.map((stockInput, index) => {
+    const stock = stockInput;
+    if (stock.sector === '') {
+      stock.sector = msg;
     }
-    if (item.industry === '') {
-      item.industry = msg;
+    if (stock.industry === '') {
+      stock.industry = msg;
     }
-    if (item.country === '') {
-      item.country = msg;
+    if (stock.country === '') {
+      stock.country = msg;
     }
-    item.id = index;
-    return item;
+    stock.id = index;
+    return stock;
   });
   return {
     industryList: getUniqueValuesFromList(stockList, 'industry'),

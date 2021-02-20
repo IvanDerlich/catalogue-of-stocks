@@ -12,6 +12,11 @@ function App() {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
+    /* Adjust the parameter of the below function to:
+        - 'offline': consumes a stockList from src/actions/stockList.js
+        - 'API': Calls the financialmodelingprep.com API
+      More info at src/actions/index-info.md
+    */
     initialize('offline')
       .then(store => {
         setStore(store);
