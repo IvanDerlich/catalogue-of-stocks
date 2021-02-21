@@ -4,19 +4,20 @@
   width: 100%;
 }
 
-#stocks-table td, #stocks-table th {
+#stocks-table td,
+#stocks-table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#stocks-table tr:nth-child(even){background-color: #f2f2f2;}
+#stocks-table tr:nth-child(even) { background-color: #f2f2f2; }
 
-#stocks-table tr:hover {background-color: #ddd;}
+#stocks-table tr:hover { background-color: #ddd; }
 
 #stocks-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
