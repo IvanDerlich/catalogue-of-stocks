@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Filter from '../components/Filter';
+import './Filters.scss';
 
 import {
   changeFilter,

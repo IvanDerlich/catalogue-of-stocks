@@ -20,6 +20,7 @@ const Filter = ({
     <div>
       <div>{name.replace(/^\w/, c => c.toUpperCase())}</div>
       <select
+        className="select-css"
         onChange={handleChange}
         name={name}
         value={filterValue}

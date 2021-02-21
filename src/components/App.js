@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import Loading from './Loading';
 import { initialize } from '../actions/index';
 import DisplayStocks from './DisplayStocks';
@@ -13,7 +13,7 @@ function App() {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
-    initialize('API')
+    initialize('offline')
       .then(store => {
         setStore(store);
       });

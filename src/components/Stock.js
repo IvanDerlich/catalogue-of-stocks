@@ -13,45 +13,19 @@ function Stock({ stock, number }) {
     id,
   } = stock;
   return (
-    <div>
-      <hr />
-      <div>
-        Number:
-        {number}
-      </div>
-      <div>
-        Id:
-        {id}
-      </div>
-      <div>
-        Symbol:
+    <tr>
+      <td>
         <Link to={`stocks/${symbol}`}>{symbol}</Link>
-      </div>
-      <div>
-        Name:
-        {companyName}
-      </div>
-      <div>
-        Sector:
-        {sector}
-      </div>
-      <div>
-        Industry:
-        {industry}
-      </div>
-      <div>
-        Exchange:
-        {exchange}
-      </div>
-      <div>
-        Contry:
-        {country}
-      </div>
-      <div>
-        Price:
-        {price}
-      </div>
-    </div>
+      </td>
+      <td>{companyName}</td>
+      <td>{sector}</td>
+      <td>{industry}</td>
+      <td>{exchange}</td>
+      <td>{country}</td>
+      <td>{price}</td>
+      <td>{id}</td>
+      <td>{number}</td>
+    </tr>
   );
 }
 
