@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import { useState, useCallback, useEffect } from 'react';
 
 const Filter = ({
-  store, name, changeFilter,
+  store, name, handleFilterChange,
 }) => {
   const handleChange = event => {
     const { value } = event.target;
-    changeFilter(name, value);
+    handleFilterChange(name, value);
   };
 
   const reduxState = store.getState();
@@ -44,7 +44,7 @@ Filter.propTypes = {
     PropTypes.func,
   ).isRequired,
   name: PropTypes.string.isRequired,
-  changeFilter: PropTypes.func.isRequired,
+  handleFilterChange: PropTypes.func.isRequired,
 };
 
 export default Filter;

@@ -22,7 +22,7 @@ function Filters({ store }) {
           key={name}
           store={store}
           name={name}
-          changeFilter={handleChangeFilter}
+          handleFilterChange={handleChangeFilter}
         />
       ))}
     </div>

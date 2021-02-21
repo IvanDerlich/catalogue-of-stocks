@@ -14,17 +14,15 @@ function Stock({ stock, number }) {
   } = stock;
   return (
     <tr>
-      <td>
-        <Link to={`stocks/${symbol}`}>{symbol}</Link>
-      </td>
-      <td>{companyName}</td>
-      <td>{sector}</td>
-      <td>{industry}</td>
-      <td>{exchange}</td>
-      <td>{country}</td>
-      <td>{price}</td>
-      <td>{id}</td>
-      <td>{number}</td>
+      <td><Link to={`stocks/${symbol}`}>{symbol}</Link></td>
+      <td><Link to={`stocks/${symbol}`}>{companyName}</Link></td>
+      <td><Link to={`stocks/${symbol}`}>{sector}</Link></td>
+      <td><Link to={`stocks/${symbol}`}>{industry}</Link></td>
+      <td><Link to={`stocks/${symbol}`}>{exchange}</Link></td>
+      <td><Link to={`stocks/${symbol}`}>{country}</Link></td>
+      <td><Link to={`stocks/${symbol}`}>{price}</Link></td>
+      <td><Link to={`stocks/${symbol}`}>{id}</Link></td>
+      <td><Link to={`stocks/${symbol}`}>{number}</Link></td>
     </tr>
   );
 }
