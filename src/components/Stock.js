@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './Stock.scss';
 
 function Stock({ stock, number }) {
   const {
@@ -14,15 +15,15 @@ function Stock({ stock, number }) {
   } = stock;
   return (
     <tr>
-      <td><Link to={`stocks/${symbol}`}>{symbol}</Link></td>
-      <td><Link to={`stocks/${symbol}`}>{companyName}</Link></td>
-      <td><Link to={`stocks/${symbol}`}>{sector}</Link></td>
-      <td><Link to={`stocks/${symbol}`}>{industry}</Link></td>
-      <td><Link to={`stocks/${symbol}`}>{exchange}</Link></td>
-      <td><Link to={`stocks/${symbol}`}>{country}</Link></td>
-      <td><Link to={`stocks/${symbol}`}>{price}</Link></td>
-      <td><Link to={`stocks/${symbol}`}>{id}</Link></td>
-      <td><Link to={`stocks/${symbol}`}>{number}</Link></td>
+      <td className="stock-data"><Link to={`stocks/${symbol}`}>{symbol}</Link></td>
+      <td className="stock-data"><Link to={`stocks/${symbol}`}>{companyName}</Link></td>
+      <td>{sector}</td>
+      <td>{industry}</td>
+      <td>{exchange}</td>
+      <td>{country}</td>
+      <td>{price}</td>
+      <td>{id}</td>
+      <td>{number}</td>
     </tr>
   );
 }
