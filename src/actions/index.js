@@ -5,7 +5,7 @@ import { CLEAR_FILTERS } from './clearFilters';
 
 export const initialize = mode => INITIALIZE(mode);
 
-export const changeFilter = (store, filter, value) => CHANGE_FILTER(store, filter, value);
+export const changeFilter = (dispatch, filter, value) => CHANGE_FILTER(dispatch, filter, value);
 
 export const clearFilters = store => CLEAR_FILTERS(store);
 

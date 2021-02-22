@@ -1,17 +1,17 @@
-const CHANGE_FILTER = (store, filter, value) => {
+const CHANGE_FILTER = (dispatch, filter, value) => {
   switch (filter) {
     case 'industry':
-      return store.dispatch({
+      return dispatch({
         type: 'CHANGE_INDUSTRY_FILTER',
         industryFilter: value,
       });
     case 'sector':
-      return store.dispatch({
+      return dispatch({
         type: 'CHANGE_SECTOR_FILTER',
         sectorFilter: value,
       });
     case 'country':
-      return store.dispatch({
+      return dispatch({
         type: 'CHANGE_COUNTRY_FILTER',
         countryFilter: value,
       });
