@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
 import { Route, BrowserRouter } from 'react-router-dom';
 import './App.scss';
 import Loading from './Loading';
@@ -22,23 +23,25 @@ function App() {
   if (store) {
     return (
       <BrowserRouter>
-        <NavBar />
-        <Route exact path="/" component={() => <DisplayStocks store={store} />} />
-        <Route path="/About" component={About} />
-        <Route
-          path="/stocks/:symbol"
-          component={props => (
-            <DisplaySingleStock
-              symbol={props.match.params.symbol}
-              store={store}
-            />
-          )}
-        />
+        <Provider store={store}>
+          <NavBar />
+          <Route exact path="/" component={() => <DisplayStocks store={store} />} />
+          <Route path="/About" component={About} />
+          <Route
+            path="/stocks/:symbol"
+            component={props => (
+              <DisplaySingleStock
+                symbol={props.match.params.symbol}
+                store={store}
+              />
+            )}
+          />
+        </Provider>
       </BrowserRouter>
 
     );
   }
-  return (<Loading />);
+  return Loading();
 }
 
 export default App;

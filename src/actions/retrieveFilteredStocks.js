@@ -1,10 +1,10 @@
-const RETRIEVE_FILTERED_STOCKS = store => {
+const RETRIEVE_FILTERED_STOCKS = state => {
   const {
     stockList,
     industryFilter,
     sectorFilter,
     countryFilter,
-  } = store.getState();
+  } = state;
   const filteredStocks = stockList
     .filter(item => (!!((sectorFilter === 'ANY'
         || item.sector === sectorFilter

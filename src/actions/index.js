@@ -7,11 +7,10 @@ export const initialize = mode => INITIALIZE(mode);
 
 export const changeFilter = (store, filter, value) => CHANGE_FILTER(store, filter, value);
 
-export const retrieveFilteredStocks = store => RETRIEVE_FILTERED_STOCKS(store);
-
 export const clearFilters = store => CLEAR_FILTERS(store);
 
-export const retrieveSingleStock = (store, symbol) => store
-  .getState()
+export const retrieveFilteredStocks = state => RETRIEVE_FILTERED_STOCKS(state);
+
+export const retrieveSingleStock = (state, symbol) => state
   .stockList
   .find(stock => stock.symbol === symbol);
