@@ -3,8 +3,8 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.scss';
 import Loading from '../components/Loading';
-import DisplayStocks from '../components/StocksAndFilters';
-import DisplaySingleStock from './SingleStock';
+import StocksAndFilters from '../components/StocksAndFilters';
+import SingleStock from './SingleStock';
 import About from '../components/About';
 import NavBar from '../components/Navbar';
 
@@ -13,9 +13,9 @@ function App({ visible }) {
     return (
       <BrowserRouter>
         <NavBar />
-        <Route exact path="/" component={() => <DisplayStocks />} />
+        <Route exact path="/" component={() => <StocksAndFilters />} />
         <Route path="/About" component={About} />
-        <Route path="/stocks/:symbol" component={DisplaySingleStock} />
+        <Route path="/stocks/:symbol" component={SingleStock} />
       </BrowserRouter>
     );
   }
