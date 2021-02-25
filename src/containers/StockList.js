@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Stock from '../components/Stock';
-import { retrieveFilteredStocks } from '../actions/index';
+import getFilteredStocks from '../redux/getters/getFilteredStocks';
 import './StockList.scss';
 
 const StockList = ({ stockList }) => (
@@ -46,7 +46,7 @@ StockList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  stockList: retrieveFilteredStocks(state),
+  stockList: getFilteredStocks(state),
 });
 
 export default connect(mapStateToProps)(StockList);
