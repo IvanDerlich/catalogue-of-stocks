@@ -7,7 +7,8 @@ import StocksAndFilters from '../components/StocksAndFilters';
 import SingleStock from './SingleStock';
 import About from '../components/About';
 import NavBar from '../components/Navbar';
-import PageNotFound from '../components/PageNotFound';
+// eslint-disable-next-line import/extensions
+import PageNotFound from '../components/PageNotFound.js';
 
 function App({ visible }) {
   if (visible) {
