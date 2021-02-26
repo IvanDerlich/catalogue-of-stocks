@@ -29,10 +29,9 @@ const StockList = ({ stockList }) => (
         </tr>
       </thead>
       <tbody>
-        {stockList.map((stock, index) => (
+        {stockList.map(stock => (
           <Stock
             key={stock.id}
-            number={index + 1}
             stock={stock}
           />
         ))}

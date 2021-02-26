@@ -9,24 +9,21 @@ import {
   show,
 } from './actionCreators';
 
-const dispatcher = (dispatch, state) => {
-  dispatch(loadStockList(state.stockList));
-  dispatch(loadSectorList(state.sectorList));
-  dispatch(loadIndustryList(state.industryList));
-  dispatch(loadCountryList(state.countryList));
+const dispatcher = (dispatch, stocksList) => {
+  const data = createInitialState(stocksList);
+  dispatch(loadStockList(data.stockList));
+  dispatch(loadSectorList(data.sectorList));
+  dispatch(loadIndustryList(data.industryList));
+  dispatch(loadCountryList(data.countryList));
   dispatch(show());
 };
 
 const loadState = async (dispatch, getState) => {
   const mode = getState().fetchingMode;
   if (mode === 'offline') {
-    const stocksList = offlineStockList;
-    const newState = createInitialState(stocksList);
-    dispatcher(dispatch, newState);
+    dispatcher(dispatch, offlineStockList);
   } if (mode === 'API') {
-    const stocksList = await getStockList();
-    const newState = createInitialState(stocksList);
-    dispatcher(dispatch, newState);
+    dispatcher(dispatch, await getStockList());
   }
   return new Error('Please specify initializing mode: API or offline');
 };

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Stock.scss';
 
-function Stock({ stock, number }) {
+function Stock({ stock }) {
   const {
     companyName,
     sector,
@@ -23,13 +23,11 @@ function Stock({ stock, number }) {
       <td>{country}</td>
       <td>{price}</td>
       <td>{id}</td>
-      <td>{number}</td>
     </tr>
   );
 }
 
 Stock.propTypes = {
-  number: PropTypes.number.isRequired,
   stock: PropTypes.shape({
     companyName: PropTypes.string,
     sector: PropTypes.string,
