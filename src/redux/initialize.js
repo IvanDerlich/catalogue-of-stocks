@@ -19,6 +19,6 @@ const composedEnhancers = composeWithDevTools(options);
 const store = createStore(rootReducer, composedEnhancers(applyMiddleware(thunkMiddleware)));
 
 store.dispatch(offlineFetching());
-// store.dispatch(apiFetching());
+store.dispatch(apiFetching());
 store.dispatch(loadState);
 export default store;
