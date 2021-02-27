@@ -25,7 +25,6 @@ const StockList = ({ stockList }) => (
           <th>Country</th>
           <th>Price</th>
           <th>Id</th>
-          <th>#</th>
         </tr>
       </thead>
       <tbody>
